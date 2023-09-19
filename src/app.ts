@@ -1,13 +1,12 @@
 import "dotenv/config"
 import express from "express";
 import cors from "cors";
+import authRouter from "./routes/auth.routes"
 
-const PORT = process.env.PORT || 3001;
-const app = express();
+export const PORT = process.env.PORT || 3001;
+export const app = express();
 
 app.use(cors());
 
-app.listen(
-    PORT,
-    () => console.log("Sever listening on port", PORT)
-)
+app.use("/auth", authRouter)
+
