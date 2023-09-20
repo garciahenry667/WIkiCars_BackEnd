@@ -33,7 +33,9 @@ export const signinHandler = async (req: Request, res: Response) => {
   // Create user
   export const signupHandler = async (req: Request, res: Response) => {
     const { name, email, password } = req.body;
-  
+    
+    let role = 'user';
+
     try {
       // Check if user already exists
       const userExists = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
@@ -46,7 +48,7 @@ export const signinHandler = async (req: Request, res: Response) => {
       const hashedPassword = bcrypt.hashSync(password, 10);
   
       // Insert user into database
-      await pool.query('INSERT INTO users (name, email, password) VALUES ($1, $2, $3)', [name, email, hashedPassword]);
+      await pool.query('INSERT INTO users (name, email, password, role) VALUES ($1, $2, $3, $4)', [name, email, hashedPassword, role]);
   
       res.status(201).json({ message: 'User created' });
     } catch (err) {

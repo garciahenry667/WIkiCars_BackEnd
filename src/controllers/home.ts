@@ -1,5 +1,5 @@
 import pool from "../database";
-import { Request, Response, json } from "express";
+import { Request, Response } from "express";
 
 const homePage = async (req: Request, res:Response) => {
     try {
