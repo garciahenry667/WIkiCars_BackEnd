@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import pool from '../database';
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
+import "dotenv/config"
 
 
 // Login user

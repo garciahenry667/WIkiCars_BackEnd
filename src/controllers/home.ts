@@ -2,6 +2,7 @@ import pool from "../database";
 import { Request, Response } from "express";
 
 const homePage = async (req: Request, res:Response) => {
+    
     try {
         // Execute the query to fetch cars
         const selectCarsQuery = "SELECT * FROM cars";
