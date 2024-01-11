@@ -1,5 +1,5 @@
 import "dotenv/config"
-import express, { json } from "express";
+import express from "express";
 import cors from "cors";
 import authRouter from "./routes/auth.routes"
 import postRouter from "./routes/posts.routes"
@@ -11,5 +11,5 @@ app.use(cors());
 app.use(express.json())
 
 app.use("/auth", authRouter)
-app.use('/create', postRouter)
+app.use('/post', postRouter)
 
